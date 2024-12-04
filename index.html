@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="tanuló weboldal: NASA küldetéseinek bemutatása">
+    <meta name="author" content="Varga Ákos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.7.1.js"></script>
+    <script src="jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
+    <title>NASA</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="kepek/favicon.png" type="image/x-icon">
+    <script>
+        $(document).ready(function(){
+            $("#kerdoiv").validate({
+                rules:{
+                    vez: "required",
+                    ker: "required",
+                    mail: {required: true,
+                        email: true,
+                    },
+                    szul: "required",
+                    hallotte: "required",
+                    prog: "required",
+                },
+                messages:{
+                    vez: "Add meg a vezetékneved!",
+                    ker: "Add meg a keresztneved!",
+                    mail: "Valós e-mail címet adj meg!",
+                    szul: "Add meg, hogy mikor születtél!",
+                    hallotte: "Válassz egyet!",
+                    prog: "Válassz egyet!",
+                },
+            });
+        });
+    </script>
+</head>
+<body>   
+    <header class="cim">
+        <h1>NASA PROGRAMOK</h1>
+    </header>
+    <nav class="fonav">
+        <a href="#">Fő oldal</a>
+        <a href="europa.html">Europa Clipper-projekt</a>
+        <a href="artemis.html">Artemis-program</a>
+        <a href="tavcso.html">Űrtávcsövek</a>
+    </nav>
+    <div class="container">
+        <article class="fo">
+            <img src="kepek/nasalogo.png" alt="NASAlogo">
+            <h5>
+                (National Aeronautics and Space Administration)
+            </h5>
+        </article>
+        
+        <article class="fo">
+            <p>
+            NASA, az Egyesült Államok űrkutatási hivatala,
+            az emberiség egyik legnagyobb tudományos és technológiai szervezete.
+            1958-ban alapítoták és azóta fő szerepet játszik az űrkutatásban. 
+            Kutatásaik segítették a technológia fejlődését és jelentősen
+            hozzájárultak a világegyetem jobb megismeréséhez.</p>
+            <p>Ez az oldal bemutatja a NASA leghíresebb és legérdekesebb programjait, 
+            például a Mars küldetéseket, a naprandszeren belüli élet kutatását,
+            a Holdra való visszatérés lehetőségét valamint a Hubble és a James Webb űrtávcsöveket.
+            </p>
+        </article>
+    <br><br>
+
+    <form method="post" action="https://rf.uni-corvinus.hu/webfejlesztes/receive.php" id="kerdoiv" novalidate>
+        <h4>Kérdőív</h4>
+        <p> <label>Vezetéknév:<br>
+            <input type="text" name="vez" placeholder="Irif" id="vez"></label>
+        </p>
+        <p><label>Keresztnév:<br>
+            <input type="text" name="ker" placeholder="Zach" id="ker"></label>
+        </p>
+        <p><label>E-mail:<br>
+            <input type="email" name="mail" placeholder="zachirif@gmail.com" id="mail"></label>
+        </p>
+        <p><label>Mikor születtél?<br>
+            <input type="date" name="szul" id="szul"></label>
+        </p>
+        <p><label>
+            Hallottál már a NASA-ról?<br>
+            <input type="radio" value="igen" name="hallotte">Igen<br></label>
+            <label><input type="radio" value="nem" name="hallotte">Nem<br></label>
+        </p>
+        <p><label>
+            A bemutatott programok közül melyiket ismerted már?<br>
+            <input type="checkbox" name="prog" value="mars">Mars Küldetések<br></label>
+            <label><input type="checkbox" name="prog" value="europa">Europa-projekt<br></label>
+            <label><input type="checkbox" name="prog" value="artemis">Artemis-program<br></label>
+            <label><input type="checkbox" name="prog" value="távcső">Űrtávcsövek<br></label>
+            <label><input type="checkbox" name="prog" value="egyiksem">Egyikről sem<br></label>
+        </p>
+        <input type="submit" value="Beküld">
+        <input type="reset" value="Törlés"><br><br><br><br>
+        </form>
+        <form name="kvizjatek" onsubmit="return false">
+        <h4>Kvíz</h4>
+        <p>
+            1. Mi a NASA fő célja?<br> <!-- Űrkutatás és technológia fejlesztése -->
+            <label id="label-csillagaszat"><input type="radio" id="csillagaszat" name="cel" >Csillagászat népszerűsítése<br></label>
+            <label id="label-urkutatas"><input type="radio" id="urkutatas" name="cel">Űrkutatás és technológia fejlesztése<br></label>
+            <label id="label-idojaras"><input type="radio" id="idojaras" name="cel">Időjárás-előrejelzés<br></label>
+            <label id="label-tenger"><input type="radio" id="tenger" name="cel">Tengeri kutatások<br></label>
+        </p>
+        <p><label>
+            2. Melyik évben lépett először ember a Holdra?<br><!-- 1969 -->
+            <select name="ev">
+                <option>1964</option>
+                <option>1969</option>
+                <option>1971</option>
+                <option>1974</option>
+            </select></label>
+        </p>
+        <p><label>
+            3. Hányszor voltunk a Holdon?<br><!-- 6 -->
+            <input type="number" min="0" id="szam"></label>
+        </p>
+        <p>
+            4. Melyik bolygó Holdjának van a legnagyobb esélye, hogy van rajta élet?<br><!-- Jupiter -->
+            <label id="label-venusz"><input type="radio" id="venusz" name="bolygo">Vénusz<br></label>
+            <label id="label-mars"><input type="radio" id="mars" name="bolygo">Mars<br></label>
+            <label id="label-jupiter"><input type="radio" id="jupiter" name="bolygo">Jupiter<br></label>
+            <label id="label-saturn"><input type="radio" id="saturn" name="bolygo">Saturnus</label>
+        </p>
+        <p><label>
+            5. Mi volt a NASA első sikeres bolygóközi szondája?<br><!-- Voyager 1 -->
+            <select name="bkozi" size="4">
+                <option>Mariner 2</option>
+                <option>Pioneer 10</option>
+                <option>Viking 1</option>
+                <option>Voyager 1</option>
+            </select></label>
+        </p>
+        <p>
+            6. Az alábbiak közül kik űrhalyósok?(Több is választható)<br><!-- Neil Armstrong,  John Young, Farkas Bertalan-->
+            <label id="label-neil"><input type="checkbox" value="neil" name="pilota">Neil Armstrong<br></label>
+            <label id="label-john"><input type="checkbox" value="john" name="pilota">John Young<br></label>
+            <label id="label-chris"><input type="checkbox" value="chris" name="pilota">Chris Pratt<br></label>
+            <label id="label-farkas"><input type="checkbox" value="farkas" name="pilota">Farkas Bertalan<br></label>
+        </p>
+        
+        <input type="submit" value="Ellenőrzés" id="kviz">
+        <br><br>
+    </form>
+    </div>
+
+    <footer>
+        <h3>
+            Az oldal tanulmányi célra lett készítve. Varga Ákos © 2024
+        </h3>
+    </footer>
+    <script src="ellenorzes.js"></script>
+</body>
+</html>
