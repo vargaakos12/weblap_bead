@@ -1,5 +1,5 @@
 Varga Ákos
-URL:  
+URL: https://vargaakos12.github.io/weblap_bead/
 A weboldal a NASA néhány küldetéséről szól. Bemutatja a Europa Clipper küldetést, az Artemis-programokat és különböző űrtávcsöveket. 
 A JS kód az első oldalon található és arra van, hogy a kvízt ellenőrizze. Az elementek lekérésével és helyességének ellenőrzése alapján állítja be az elemek színét.
 Exo 2 font típust használ az egész weboldal
